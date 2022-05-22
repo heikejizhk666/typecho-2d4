@@ -92,9 +92,14 @@ function themeConfig($form)
             'hideicp' => _t('隐藏ICP备案号及联网备案号')),
         array(''),
         _t('底部设置'), null);
+    $filecdn = new Typecho_Widget_Helper_Form_Element_Radio('filecdn',
+        array(1 => _t('启用'),
+        0 => _t('关闭')),
+        0, _t('主题静态文件cdn'), _t('该功能默认关闭，cdn由织音云提供'),null);
     $form->addInput($logoUrl);
     $form->addInput($faviconUrl);
     $form->addInput($jqueryUrl);
+    $form->addInput($filecdn);
     $form->addInput($hello);
     $form->addInput($motto);
     $form->addInput($runtime);
@@ -107,41 +112,6 @@ function themeConfig($form)
     $form->addInput($footerCode);
     $form->addInput($indexSet->multiMode());
 	$form->addInput($footerSet->multiMode());
-}
-
-// 统计阅读数
-function get_post_view($archive){
-	$cid    = $archive->cid;
-	$db     = Typecho_Db::get();
-	$prefix = $db->getPrefix();
-	if (!array_key_exists('views', $db->fetchRow($db->select()->from('table.contents')))) {
-		$db->query('ALTER TABLE `' . $prefix . 'contents` ADD `views` INT(10) DEFAULT 0;');
-		echo 0;
-		return;
-	}
-	$row = $db->fetchRow($db->select('views')->from('table.contents')->where('cid = ?', $cid));
-	if ($archive->is('single')) {
-        $views = Typecho_Cookie::get('extend_contents_views');
-		if(empty($views)){
-			$views = array();
-		}else{
-			$views = explode(',', $views);
-		}
-        if(!in_array($cid,$views)){
-	        $db->query($db->update('table.contents')->rows(array('views' => (int) $row['views'] + 1))->where('cid = ?', $cid));
-            array_push($views, $cid);
-			$views = implode(',', $views);
-			Typecho_Cookie::set('extend_contents_views', $views); //记录查看cookie
-		}
-	}
-	echo $row['views'];
-}
-// 留言加@
-function getPermalinkFromCoid($coid) {
-	$db = Typecho_Db::get();
-	$row = $db->fetchRow($db->select('author')->from('table.comments')->where('coid = ? AND status = ?', $coid, 'approved'));
-	if (empty($row)) return '';
-	return '<a href="#comment-'.$coid.'">@'.$row['author'].'</a>';
 }
 
 // 解析头像

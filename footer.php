@@ -1,5 +1,9 @@
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
-<link rel="stylesheet" href="<?php $this->options->themeUrl('style.css'); ?>">
+        <?php if($this->options->filecdn != null) { ?>
+            <link rel="stylesheet" type="text/css" media="all" href="https://typecho.0qaq.com/2d4/free/style.css" />
+        <?php } else { ?>
+            <link rel="stylesheet" type="text/css" media="all" href="<?php $this->options->themeUrl('style.css'); ?>" />
+        <?php } ?>
 	<div class="gd_block"></div>
 		<div class="gd_box gd_copy_middle">
 			    <b style="text-align: center">友情链接</b>

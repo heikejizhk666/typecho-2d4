@@ -3,7 +3,7 @@
  * 2d4是一款简洁、美观、高性能博客主题。体积小，页面简洁，适合个人和极客使用。<br><a href="https://www.314669.xyz/2d4.html">主题下载</a>&nbsp;&nbsp;&nbsp;<a href="https://www.314669.xyz/2d4-docs.html">主题文档</a>&nbsp;&nbsp;&nbsp;<a href="https://jq.qq.com/?_wv=1027&k=TvHysSEV">QQ交流群</a>
  * @package 2d4
  * @author Hi Tech
- * @version 1.0.6
+ * @version 1.0.8
  * @link https://www.314669.xyz/
  */
 
@@ -61,6 +61,11 @@
                 <?php include('footer.php') ?>
             </div>
         </div>
-        <script src="<?php $this->options->themeUrl(); ?>static/js/main.js"></script>
+        
+        <?php if($this->options->filecdn != null) { ?>
+            <link rel="stylesheet" type="text/css" media="all" href="https://typecho.0qaq.com/2d4/free/static/js/main.js" />
+        <?php } else { ?>
+            <script src="<?php $this->options->themeUrl(); ?>static/js/main.js"></script>
+        <?php } ?>
     </body>
 </html>
