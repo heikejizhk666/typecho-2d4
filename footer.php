@@ -1,26 +1,23 @@
+<!--后台可直接关闭版权，请勿在此修改！-->
+<script>console.log("\n %c 2d4主题 v1.2.0 %c by Hi Tech | www.314669.xyz", "color:#fff;background:#f39d2e;padding:5px 0;", "color:#eee;background:#444;padding:5px 10px;");
+</script>
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
-        <?php if($this->options->filecdn != null) { ?>
-            <link rel="stylesheet" type="text/css" media="all" href="https://typecho.0qaq.com/2d4/free/style.css" />
-        <?php } else { ?>
-            <link rel="stylesheet" type="text/css" media="all" href="<?php $this->options->themeUrl('style.css'); ?>" />
-        <?php } ?>
-	<div class="gd_block"></div>
-		<div class="gd_box gd_copy_middle">
-			    <b style="text-align: center">友情链接</b>
+
+    <link rel="stylesheet" type="text/css" media="all" href="<?php $this->options->themeUrl('style.css'); ?>" />
+    <div class="eds_copy_middle">
+		<div class="eds_box">
+			    <b>友情链接</b>
 			    <?php Links_Plugin::output(); ?>
 		</div>
-			<!--删除版权可能会影响网站SEO，视为放弃一切技术支持！出问题自理！-->
-			<!--让更多人使用主题，作者才有动力继续更新下去-->
-			<!--你删除版权，你的良心难道不会痛吗？-->
-			<br><br><div class="gd_box gd_copy_middle">
+			<br><br>
+			<div class="eds_box">
 			    <p>本站已运行<span id="momk"></span></p>
-		    	Copyright &copy; <?php echo date('Y'); ?> <a href="<?php $this->options->siteUrl(); ?>"><?php $this->options->title(); ?></a>.
-                <div class="gd_copy">
-                    <?php include('copy.php') ?>
-                </div>
-			    <?php if(empty($this->options->otherSet) || in_array('hideicp', $this->options->otherSet) == null){ ?><img src="<?php $this->options->themeUrl(''); ?>static/img/icp.svg" style="width: 24px;height: 24px;"><a href="http://beian.miit.gov.cn/" target="_blank"><?php $this->options->icp() ?></a>&nbsp;&nbsp;
-			    <img src="<?php $this->options->themeUrl(''); ?>static/img/police.svg" style="width: 24px;height: 24px;"><a href="http://beian.gov.cn/" target="_blank"><?php $this->options->police() ?></a><?php } ?>
+		    	Copyright &copy;<?php echo date('Y'); ?> <a href="<?php $this->options->siteUrl(); ?>"><?php $this->options->title(); ?></a>.
+			    <!--后台可直接关闭版权，请勿在此修改！-->
+				<?php if(empty($this->options->copySet) || in_array('hidehpcopy', $this->options->copySet) == null){ ?><?php _e('Theme by <a href="https://www.314669.xyz/2d4.html">2d4-Pro</a>'); ?><?php } ?><br>
+				<?php if(empty($this->options->footerSet) || in_array('hideicp', $this->options->footerSet) == null){ ?><img src="https://public.sourcegcdn.com/heikeji/corepress-static/img/icp.svg" style="width: 24px;height: 24px;"><a href="http://beian.miit.gov.cn/" target="_blank"><?php $this->options->icp() ?></a><?php } ?>
 		    	<br><?php $this->options->footerCode() ?>
+	</div>
 			    <script language="javascript">
 			    	function show_date_time(){
 			    	window.setTimeout("show_date_time()", 1000);
@@ -42,18 +39,15 @@
 			    	show_date_time();
 			    </script>
 			</div>
-		</div>
-	</div>
-</div><!-- end #body -->
-<script>
+        <script>
             function suit(){
-                if($(".gd_main").width() >= 760){
-                    $(".gd_main").css('left', ($(window).width() / 2 - 400));
+                if($(".eds_main").width() >= 760){
+                    $(".eds_main").css('left', ($(window).width() / 2 - 400));
                 }
                 else{
-                    $(".gd_main").css('left', 'calc(10% - 20px)');
+                    $(".eds_main").css('left', 'calc(10% - 20px)');
                 }
-                $("#d").css('height', $(".gd_copy").height() + 40);
+                $("#d").css('height', $(".eds_copy").height() + 40);
             }
             suit();
             $(window).resize(function(){

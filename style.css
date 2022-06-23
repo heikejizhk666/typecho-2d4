@@ -1,4 +1,3 @@
-/*本页面CSS引用自https://theme.estu.site/，经作者授权*/
 ::selection{
     background: rgb(52,52,52);
     color: white;
@@ -18,7 +17,7 @@ a{
 }
 code{
     font-size: 15px;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: "微软雅黑",'Times New Roman', Times, serif;
    /* white-space: nowrap; */
 }
 pre{
@@ -34,7 +33,7 @@ blockquote{
     border-left: 4px rgb(235,235,235) solid;
     width: calc(100% - 24px);
 }
-.gd_head{
+.eds_head{
     position: fixed;
     background-color: rgb(240, 240, 240);
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
@@ -45,10 +44,10 @@ blockquote{
     padding: 10px;
     z-index: 100;
 }
-.gd_head img{
+.eds_head img{
     height: 100%;
 }
-.gd_main{
+.eds_main{
     position: absolute;
     top: 90px;
     height: auto;
@@ -57,11 +56,11 @@ blockquote{
     padding: 20px;
     min-height: calc(100% - 130px);
 }
-.gd_block{
+.eds_block{
     position: relative;
     margin: 20px 0;
 }
-.gd_box{
+.eds_box{
     position: relative;
     width: calc(100% - 40px);
     padding: 20px;
@@ -69,45 +68,45 @@ blockquote{
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
 }
-.gd_pd{
+.eds_pd{
     transition: all 0.2s ease;
 }
-.gd_pd:hover{
+.eds_pd:hover{
     transform: scale(0.98);
     background-color: rgb(252, 252, 252);
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
 }
-.gd_c{
+.eds_c{
     cursor: pointer;
 }
-.gd_p{
+.eds_p{
     word-break: auto;
 }
-.gd_p p,.gd_p h1,.gd_p h2,.gd_p h3,.gd_p h4,.gd_p h5,.gd_p h6,.gd_p img,.gd_p b,.gd_p code,.gd_p div,.gd_p a,.gd_p pre{
+.eds_p p,.eds_p h1,.eds_p h2,.eds_p h3,.eds_p h4,.eds_p h5,.eds_p h6,.eds_p img,.eds_p b,.eds_p code,.eds_p div,.eds_p a,.eds_p pre{
     margin: 10px 0;
 }
-.gd_p a{
+.eds_p a{
     display: inline-block;
 }
-.gd_copy{
+.eds_copy{
     position: absolute;
     bottom: 40px;
     width: calc(100% - 40px);
 }
-.gd_copy_middle{
+.eds_copy_middle{
     text-align: center;
 }
-.gd_post_header{
+.eds_post_header{
     min-height: 200px;
     height: auto;
 }
-.gd_post_header div{
+.eds_post_header div{
     position: absolute;
     bottom: 30px;
     width: calc(100% - 40px);
     word-break: break-all;
 }
-.gd_menu{
+.eds_menu{
     position: relative;
     width: calc(100% - 60px);
     height: 45px;
@@ -116,7 +115,7 @@ blockquote{
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
 }
-.gd_menu a{
+.eds_menu a{
     display: inline-block;
     height: 100%;
     background-color: white;
@@ -124,35 +123,16 @@ blockquote{
     padding: 0 20px;
     line-height: 45px;
 }
-.gd_menu a:hover{
+.eds_menu a:hover{
     background-color: rgb(235, 235, 235);
     cursor: pointer;
 }
-.gd_menu .this{
+.eds_menu .this{
     background-color: rgb(224, 224, 224);
 }
-.gd_menu .this:hover{
+.eds_menu .this:hover{
     background-color: rgb(224, 224, 224);
 }
-.gd_img_100 img{
+.eds_img_100 img{
     width: 100%;
-}
-
-/* 页码 */
-.page-navigator {
-    padding: 15px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    display: inherit
-}
-
-.page-navigator a:hover {
-    background: #393d49;
-    color: #fff
-}
-
-.page-navigator .current {
-    background: #333742;
-    color: #fff
 }

@@ -1,5 +1,4 @@
 <?php
-if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 function themeConfig($form)
 {
     $faviconUrl = new Typecho_Widget_Helper_Form_Element_Text(
@@ -80,40 +79,64 @@ function themeConfig($form)
         '网站顶部格言',
         '填写网站顶部格言，支持HTML'
     );
+    $backgroundimg = new Typecho_Widget_Helper_Form_Element_Text(
+        'backgroundimg',
+        NULL, NULL,
+        '网站背景图片',
+        '填写网站背景图片地址，支持base64地址'
+    );
     $indexSet = new Typecho_Widget_Helper_Form_Element_Checkbox('indexSet', 
         array('hideyyimg' => _t('隐藏一言模块'),
             'hideslide' => _t('隐藏幻灯片')),
         array(''),
         _t('首页设置'), null);
     
+	$copySet = new Typecho_Widget_Helper_Form_Element_Checkbox('copySet',
+	    array('hidehpcopy' => _t('隐藏所有页面底部HighPress版权'),
+	        'hidepostcopy' => _t('隐藏所有文章文章版权')),
+	    array(''),
+	    _t('版权设置'), null);
+    $cur = new Typecho_Widget_Helper_Form_Element_Radio('cur',
+        array(1 => _t('启用'),
+        0 => _t('关闭')),
+        0, _t('网站指针美化设置'), _t('该功能默认关闭'));
+    $font = new Typecho_Widget_Helper_Form_Element_Radio('font',
+        array(1 => _t('启用'),
+        0 => _t('关闭')),
+        0, _t('网站字体美化设置'), _t('该功能默认关闭'));
     $footerSet = new Typecho_Widget_Helper_Form_Element_Checkbox('footerSet', 
         array('hiderun' => _t('隐藏页面底部运行时间'),
             'hidefriend' => _t('隐藏页面底部友链模块'),
             'hideicp' => _t('隐藏ICP备案号及联网备案号')),
         array(''),
         _t('底部设置'), null);
-    $filecdn = new Typecho_Widget_Helper_Form_Element_Radio('filecdn',
-        array(1 => _t('启用'),
-        0 => _t('关闭')),
-        0, _t('主题静态文件cdn'), _t('该功能默认关闭，cdn由织音云提供'),null);
+    $form->addInput($cur);
+    $form->addInput($font);
     $form->addInput($logoUrl);
     $form->addInput($faviconUrl);
     $form->addInput($jqueryUrl);
-    $form->addInput($filecdn);
     $form->addInput($hello);
     $form->addInput($motto);
     $form->addInput($runtime);
     $form->addInput($yyimg);
     $form->addInput($slide);
+    $form->addInput($backgroundimg);
     $form->addInput($icp);
     $form->addInput($police);
     $form->addInput($cssCode);
     $form->addInput($HeaderCode);
     $form->addInput($footerCode);
     $form->addInput($indexSet->multiMode());
+	$form->addInput($copySet->multiMode());
 	$form->addInput($footerSet->multiMode());
 }
-
+function themeFields($layout)
+{
+    $postcopy = new Typecho_Widget_Helper_Form_Element_Textarea('postcopy', NULL, NULL, _t('文章版权信息'), _t('在这里填入文章版权信息，将在文章末尾展示。支持HTML'));
+    $postimg = new Typecho_Widget_Helper_Form_Element_Textarea('postimg', NULL, NULL, _t('文章封面图片'), _t('在这里填入文章封面图片地址'));
+    $layout->addItem($postcopy);
+    $layout->addItem($postimg);
+}
 // 解析头像
 function getAvatar($mail)
 {

@@ -1,5 +1,5 @@
 <h3>评论(<?php $this->commentsNum(_t('0'), _t('1'), _t('%d')); ?>条评论)</h3>
-<div class="gd_block">
+<div class="eds_block">
         <?php if($this->allow('comment')) { ?>
         <h4 id="response">回复</h4>
         <form method="post" action="<?php $this->commentUrl() ?>" id="comment-form" role="form">
@@ -8,23 +8,23 @@
             <?php else: ?>
     		<p>
                 <label for="author" class="required"><?php _e('昵称'); ?></label>
-    			<input type="text" name="author" id="author" class="gd_text" value="<?php $this->remember('author'); ?>" required />
+    			<input type="text" name="author" id="author" class="eds_text" value="<?php $this->remember('author'); ?>" required />
     		</p>
     		<p>
                 <label for="mail"<?php if ($this->options->commentsRequireMail): ?> class="required"<?php endif; ?>><?php _e('Email'); ?></label>
-    			<input type="email" name="mail" id="mail" class="gd_text" value="<?php $this->remember('mail'); ?>"<?php if ($this->options->commentsRequireMail): ?> required<?php endif; ?> />
+    			<input type="email" name="mail" id="mail" class="eds_text" value="<?php $this->remember('mail'); ?>"<?php if ($this->options->commentsRequireMail): ?> required<?php endif; ?> />
     		</p>
     		<p>
                 <label for="url"<?php if ($this->options->commentsRequireURL): ?> class="required"<?php endif; ?>><?php _e('网站'); ?></label>
-    			<input type="url" name="url" id="url" class="gd_text" placeholder="<?php _e('http://'); ?>" value="<?php $this->remember('url'); ?>"<?php if ($this->options->commentsRequireURL): ?> required<?php endif; ?> />
+    			<input type="url" name="url" id="url" class="eds_text" placeholder="<?php _e('http://'); ?>" value="<?php $this->remember('url'); ?>"<?php if ($this->options->commentsRequireURL): ?> required<?php endif; ?> />
     		</p>
             <?php endif; ?>
     		<p>
                 <label for="textarea" class="required"></label>
-                <textarea rows="8" cols="50" name="text" id="textarea" class="gd_textarea" required ><?php $this->remember('text'); ?></textarea>
+                <textarea rows="8" cols="50" name="text" id="textarea" class="eds_textarea" required ><?php $this->remember('text'); ?></textarea>
             </p>
     		<p>
-                <button type="submit" class="gd_button"><span><?php _e('提交评论'); ?></span></button>
+                <button type="submit" class="eds_button"><span><?php _e('提交评论'); ?></span></button>
             </p>
             <?php $security = $this->widget('Widget_Security'); ?>
             <input type="hidden" name="_" value="<?php echo $security->getToken($this->request->getReferer())?>">
@@ -36,12 +36,12 @@
 <ol id="comment_list">
     <?php $this->comments()->to($comments); ?>
     <?php while($comments->next()): ?>
-	<div class="gd_list_item" id="<?php $comments->theId(); ?>">
-	    <div class="gd_list_item_info">
+	<div class="eds_list_item" id="<?php $comments->theId(); ?>">
+	    <div class="eds_list_item_info">
     	    <b><?php $comments->author(); ?></b>
             <p><?php $comments->date('Y F jS'); ?> <?php $comments->date('h:i a'); ?> <?php $comments->sequence(); ?>楼</p>
 	    </div>
-	    <div class="gd_p">
+	    <div class="eds_p">
 	        <?php $comments->content(); ?>
 	    </div>
 	</div>
